@@ -11,6 +11,8 @@ This project was bootstrapped with
 
 ![](preview.png)
 
+[demo](https://react-smart-app.now.sh)
+
 ## Installation
 
 - clone this repo
