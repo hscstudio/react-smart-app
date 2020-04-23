@@ -1,4 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Smart App
+
+Boilerplate React App
+
+This project was bootstrapped with 
+- [Create React App](https://github.com/facebook/create-react-app);
+- [Ant Design](https://ant.design)
+- [React Router](https://ant.design)
+- State Management with Persisted - React Hooks (Redux Like)
+- Some Sample Page & User Interface
+
+## Installation
+
+- clone this repo
+- npm install
+- npm run start
+- enjoy
 
 ## Available Scripts
 

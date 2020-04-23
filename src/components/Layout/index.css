@@ -1,0 +1,58 @@
+.BaseLayout .ant-layout-header {
+    padding: 0 15px;
+    background-color: #0288d1;
+    color: #f1f8e9;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+    z-index: 2;
+  }
+  
+  .BaseLayout .ant-layout-header h2{
+    text-align: center;
+    color: #fff;
+    margin: 0;
+    line-height: 64px;
+    cursor: pointer;
+  }
+  
+  .BaseLayout .ant-layout-header button.toolbar-btn{
+    height: 64px;
+  }
+  
+  .BaseLayout .ant-layout-header button.toolbar-btn > span{
+    font-size: 1.5em;
+    color: #fff;
+  }
+
+  .BaseLayout .ant-layout-header a{
+    color: #fff;
+  }
+
+  .BaseLayout .content {
+    background-color: #eee;
+    position: relative;
+    padding: 10px;
+  }
+
+  .BaseLayout .content .page{
+    background-color: #fff;
+    padding: 10px;
+    min-height: calc(100vh - 65px);
+    min-height: -o-calc(100% - 65px); /* opera */
+    min-height: -webkit-calc(100% - 65px); /* google, safari */
+    min-height: -moz-calc(100% - 65px); /* firefox */
+  }
+  
+  .BaseLayout .ant-layout-footer{
+    padding: 15px;
+    height: 48px;
+    background-color: #fff;
+    border-top: 1px solid #0288d1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .ant-drawer-body{
+    padding: 0;
+  }

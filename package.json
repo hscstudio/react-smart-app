@@ -3,12 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.0.6",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "antd": "^4.1.4",
+    "axios": "^0.19.2",
+    "immer": "^6.0.3",
+    "lz-string": "^1.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "use-immer": "^0.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,6 +36,23 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-config-standard-jsx": "^8.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "standard-engine": "^12.0.0"
+  },
+  "babel": {
+    "plugins": [
+      "transform-remove-console"
     ]
   }
 }
