@@ -9,6 +9,8 @@ This project was bootstrapped with
 - State Management with Persisted - React Hooks (Redux Like)
 - Some Sample Page & User Interface
 
+![](preview.png)
+
 ## Installation
 
 - clone this repo
