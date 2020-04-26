@@ -1,17 +1,17 @@
 import React from 'react'
 import Layout from 'components/Layout'
-import { Form, Input, Button, Checkbox, message as Message } from 'antd'
-import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import { Form, Input, Button, message as Message } from 'antd'
+import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons'
 import { useHistory } from 'react-router-dom'
 import useAuth from 'hooks/use-auth'
 
-const Login = () => {
-  const { login } = useAuth()
+const Signup = () => {
+  const { signup } = useAuth()
   const history = useHistory()
 
   const onFinish = async values => {
-    const { username, password } = values
-    const { status, message } = await login({ username, password })
+    const { username, email, password } = values
+    const { status, message } = await signup({ username, email, password })
     if (status === 'success') {
       Message.success(message)
       history.push('/home')
@@ -22,13 +22,11 @@ const Login = () => {
   return <>
     <Layout>
       <div className="page">
-        <h2>Form Login</h2>
-        * username: admin & password: 123456
+        <h2>Form Signup</h2>
         <Form
           name="normal_login"
           className="login-form"
           initialValues={{
-            remember: true
           }}
           onFinish={onFinish}
         >
@@ -42,6 +40,17 @@ const Login = () => {
             ]}
           >
             <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+          </Form.Item>
+          <Form.Item
+            name="email"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your Email!'
+              }
+            ]}
+          >
+            <Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="Email" />
           </Form.Item>
           <Form.Item
             name="password"
@@ -58,22 +67,13 @@ const Login = () => {
               placeholder="Password"
             />
           </Form.Item>
-          <Form.Item>
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-
-            <a className="login-form-forgot" href="/forgot-password">
-            Forgot password
-            </a>
-          </Form.Item>
 
           <Form.Item>
             <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
+            Signup
             </Button>
             &nbsp; or &nbsp;
-            <a href="/signup">Signup now!</a>
+            <a href="/login">Login now!</a>
           </Form.Item>
         </Form>
       </div>
@@ -81,4 +81,4 @@ const Login = () => {
   </>
 }
 
-export default Login
+export default Signup

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {
   Switch, Redirect
 } from 'react-router-dom'
-import GuardRoute from 'utils/GuardRoute'
+import GuardRoute from 'components/GuardRoute'
 
 const SwitchRoute = ({ routes = [] }) => {
   return (

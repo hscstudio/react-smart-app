@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Layout as BaseLayout, Row, Col, Button, Drawer, Menu, Dropdown, message } from 'antd'
+import { Layout as BaseLayout, Row, Col, Button, Drawer, Menu, Dropdown, message as Message } from 'antd'
 import {
   MenuFoldOutlined,
   LeftOutlined,
@@ -11,6 +11,7 @@ import {
 } from '@ant-design/icons'
 import { Link, useHistory } from 'react-router-dom'
 import { useShared } from 'store'
+import useAuth from 'hooks/use-auth'
 import LeftMenu from 'components/LeftMenu'
 import RightMenu from 'components/RightMenu'
 import './index.css'
@@ -28,21 +29,18 @@ function getPrevUrl (currentPage) {
 }
 
 function Layout ({ children, title, link }) {
-  const [general, setGeneral] = useShared('general')
+  const useGeneral = useShared('general')
+  const general = useGeneral[0]
+  const { user, isGuest, logout } = useAuth()
   const history = useHistory()
 
-  /* setGeneral({
-    type: 'SET',
-    payload: { state: 'appName', data: event.target.value }
-  }) */
   const authMenu = (
     <Menu>
       <Menu.Item key="1"><Link to="/account"><UserOutlined /> Profile</Link></Menu.Item>
-      <Menu.Item key="2"><a href="/" onClick={(e) => {
+      <Menu.Item key="2"><a href="/" onClick={ (e) => {
         e.preventDefault()
-        setGeneral({ type: 'SET', payload: { state: 'guest', data: true } })
-        setGeneral({ type: 'SET', payload: { state: 'user', data: {} } })
-        message.success('Logout success')
+        const response = logout()
+        Message.success(response.message)
       }}><LogoutOutlined /> Logout</a></Menu.Item>
     </Menu>
   )
@@ -84,13 +82,13 @@ function Layout ({ children, title, link }) {
                 visible: true
               })
             }} />}
-            {general.guest !== true
+            {isGuest !== true
               ? <Dropdown
                 overlay={authMenu}
               >
-                <Link to='/home'>
-                  {general.user.username}
-                </Link>
+                <Button type="link">
+                  <UserOutlined /> {user.username}
+                </Button>
               </Dropdown>
               : <Button className="toolbar-btn" type="link" icon={<LoginOutlined />} onClick={() => {
                 history.push('/login')
